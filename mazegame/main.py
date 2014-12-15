@@ -88,7 +88,7 @@ class MazeGame(SimpleGame):
 	def isGameOver(self):
 		if ( self.player.pos[0] <= 0 or self.player.pos[0]>= WINDOW_SIZE[0] or self.player.pos[1] <=0 or self.player.pos[1] >= WINDOW_SIZE[1] ) :
 			self.terminate()
-			print 60000-pygame.time.get_ticks()
+			print "Score" + 60000-pygame.time.get_ticks()
 
 	def update(self):
 		self.player.move(1./self.fps)
