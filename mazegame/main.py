@@ -31,8 +31,8 @@ class MazeGame(SimpleGame):
 		self.can_use_next_map = True
 		self.Initial_block()
 		self.Next_map_block()
-		music = pygame.mixer.music.load("music.mp3")
-                pygame.mixer.music.play(-1)
+		#music = pygame.mixer.music.load("music.mp3")
+                #pygame.mixer.music.play(-1)
 
 	#def Test(self):
 	#	for b in self.block :
