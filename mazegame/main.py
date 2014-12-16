@@ -38,15 +38,15 @@ class MazeGame(SimpleGame):
 	#	for b in self.block :
 	#		print b.pos
 	
-	def CollideCondition(self,b):
-		if self.player.pos[0] >= b.pos[0]+40 and self.player.pos[1] >= b.pos[1]+48 :
+	def CollideCondition(self,b):  ## Condition help Collide_block_player
+		if self.player.pos[0] >= b.pos[0]+40 and self.player.pos[1] >= b.pos[1]+48 : 
 			return False
 		elif self.player.pos[0] >= b.pos[0]+40 and self.player.pos[1] <= b.pos[1]+48 and self.player.pos[1] <= b.pos[1] :
 			return False
 		elif self.player.pos[0] <= b.pos[0]+40 and self.player.pos[1] >= b.pos[1]+48 and self.player.pos[0] <= b.pos[0] :
 			return False
 		else :
-			return b.pos[0] <= self.player.pos[0]+10 and self.player.pos[0]-10 <= b.pos[0]+40 and b.pos[1] <= self.player.pos[1]+10 and self.player.pos[1]-10 <= b.pos[1]+48
+			return b.pos[0] <= self.player.pos[0]+10 and self.player.pos[0]-10 <= b.pos[0]+40 and b.pos[1] <= self.player.pos[1]+10 and self.player.pos[1]-10 <= b.pos[1]+48 
 
 	def CheckCollide(self):  ## Check Collide
 		if self.isCollide == False :
@@ -90,9 +90,10 @@ class MazeGame(SimpleGame):
 	def isGameOver(self):
 		if ( self.player.pos[0] <= 0 or self.player.pos[0]>= WINDOW_SIZE[0] or self.player.pos[1] <=0 or self.player.pos[1] >= WINDOW_SIZE[1] ) :
 			self.terminate()
-			print "Score" + 60000-pygame.time.get_ticks()
+			print 60000-pygame.time.get_ticks()
 
 	def update(self):
+		#print 60000-pygame.time.get_ticks()
 		#pygame.mixer.music.load('music.mp3')
 		#pygame.mixer.music.play(-1)
 		self.player.move(1./self.fps)
@@ -176,8 +177,6 @@ class MazeGame(SimpleGame):
 
 def main():
 	game = MazeGame()
-	#music = pygame.mixer.music.load("music.mp3")
-	#pygmae.mixer.music.play(-1)
 	game.run()
 
 if __name__ == '__main__' :
