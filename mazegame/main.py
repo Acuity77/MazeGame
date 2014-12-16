@@ -31,6 +31,8 @@ class MazeGame(SimpleGame):
 		self.can_use_next_map = True
 		self.Initial_block()
 		self.Next_map_block()
+		music = pygame.mixer.music.load("music.mp3")
+                pygame.mixer.music.play(-1)
 
 	#def Test(self):
 	#	for b in self.block :
@@ -91,6 +93,8 @@ class MazeGame(SimpleGame):
 			print "Score" + 60000-pygame.time.get_ticks()
 
 	def update(self):
+		#pygame.mixer.music.load('music.mp3')
+		#pygame.mixer.music.play(-1)
 		self.player.move(1./self.fps)
 		self.isGameOver()
 		self.player.pos = ( self.player.x , self.player.y )
@@ -172,6 +176,8 @@ class MazeGame(SimpleGame):
 
 def main():
 	game = MazeGame()
+	#music = pygame.mixer.music.load("music.mp3")
+	#pygmae.mixer.music.play(-1)
 	game.run()
 
 if __name__ == '__main__' :

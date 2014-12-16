@@ -19,6 +19,9 @@ class SimpleGame(object):
 		self.surface = pygame.display.set_mode(self.window_size)
 		pygame.display.set_caption(self.title)
 		self.font = pygame.font.SysFont("monospace", 20 )
+	        music = pygame.mixer.music.load("music.mp3")
+	        pygame.mixer.music.play(-1)
+
 
 	def run(self):
 		self.init()
