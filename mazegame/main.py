@@ -23,7 +23,7 @@ class MazeGame(SimpleGame):
 		self.current_block = block
 		self.next_block = block2
 		self.isCollide = False
-		self.helpCollide = block[0]
+		self.block_Collide = block[0]
 		self.check_repeat_block = False
 		self.saveplayer = self.player.pos
 		self.changestate = 0
@@ -53,28 +53,28 @@ class MazeGame(SimpleGame):
 			for b in self.current_block:
 				if self.CollideCondition(b):
 					self.isCollide = True
-					self.helpCollide = b
+					self.block_Collide = b
 					#print b
 					break
-		if  self.CollideCondition(self.helpCollide)== False :
+		if  self.CollideCondition(self.block_Collide)== False :
 			self.isCollide = False
 
 
 	def Collide(self):  ## Condition Movement for Collide
 		if self.isCollide == True :
-			if self.player.pos[0] >= self.helpCollide.pos[0] and self.player.pos[0] >= self.helpCollide.pos[0]+40 and self.player.pos[1] >= self.helpCollide.pos[1] and self.player.pos[1] <= self.helpCollide.pos[1]+48: ## Collide Left 
+			if self.player.pos[0] >= self.block_Collide.pos[0] and self.player.pos[0] >= self.block_Collide.pos[0]+40 and self.player.pos[1] >= self.block_Collide.pos[1] and self.player.pos[1] <= self.block_Collide.pos[1]+48: ## Collide Left 
 				self.player.canmoveleft = False
 				self.player.canmoveup = False
 				self.player.canmovedown = False
-			if self.player.pos[0] <= self.helpCollide.pos[0] and self.player.pos[0] <= self.helpCollide.pos[0]+40 and self.player.pos[1] >= self.helpCollide.pos[1] and self.player.pos[1] <= self.helpCollide.pos[1]+48: ## Colllide Right
+			if self.player.pos[0] <= self.block_Collide.pos[0] and self.player.pos[0] <= self.block_Collide.pos[0]+40 and self.player.pos[1] >= self.block_Collide.pos[1] and self.player.pos[1] <= self.block_Collide.pos[1]+48: ## Colllide Right
 				self.player.canmoveright = False
 				self.player.canmoveup = False
 				self.player.canmovedown = False
-			if self.player.pos[0] >= self.helpCollide.pos[0] and self.player.pos[0] <= self.helpCollide.pos[0]+40 and self.player.pos[1] >= self.helpCollide.pos[1] and self.player.pos[1] >= self.helpCollide.pos[1]+48: ## Collide Up
+			if self.player.pos[0] >= self.block_Collide.pos[0] and self.player.pos[0] <= self.block_Collide.pos[0]+40 and self.player.pos[1] >= self.block_Collide.pos[1] and self.player.pos[1] >= self.block_Collide.pos[1]+48: ## Collide Up
 				self.player.canmoveup = False
 				self.player.canmoveleft = False
 				self.player.canmoveright = False
-			if self.player.pos[0] >= self.helpCollide.pos[0] and self.player.pos[0] <= self.helpCollide.pos[0]+40 and self.player.pos[1] <= self.helpCollide.pos[1] and self.player.pos[1] <= self.helpCollide.pos[1]+48: ## Collide Down
+			if self.player.pos[0] >= self.block_Collide.pos[0] and self.player.pos[0] <= self.block_Collide.pos[0]+40 and self.player.pos[1] <= self.block_Collide.pos[1] and self.player.pos[1] <= self.block_Collide.pos[1]+48: ## Collide Down
 				self.player.canmovedown = False
 				self.player.canmoveleft = False
 				self.player.canmoveright = False
